@@ -14,19 +14,108 @@
       type="image/x-icon"
     />
     <title>Around the u.s</title>
-    <link rel="stylesheet" href="./vendor/normalize.css" />
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body>
     <div class="page">
-      <header class="header"></header>
+      <header class="header">
+        <img class="header__logo" src="./images/logo.jpg" alt="" />
+      </header>
       <main class="content">
-        <section class="profile"></section>
-        <section class="elements"></section>
-        <section class="popup"></section>
+        <section class="profile">
+          <img
+            class="profile__avatar"
+            src="./images/jacquescousteau.jpg"
+            alt="jacques cousteau"
+          />
+          <div class="profile__info">
+            <p class="profile__info-name">Jacques Cousteau</p>
+            <p class="profile__info-description">Explorador</p>
+            <button class="profile__info-edit-btn">
+              <img src="./images/edit.svg" alt="" />
+            </button>
+          </div>
+
+          <button class="profile__info-add-btn">
+            <img src="./images/add.svg" alt="" />
+          </button>
+        </section>
+        <section class="elements">
+          <div class="elements__card">
+            <img class="elements__card-photo" src="./images/1.jpg" alt="" />
+            <div class="elements__card-content">
+              <p class="elements__card-content-text">Valle de Yosemite</p>
+              <button class="elements__card-like"></button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <img class="elements__card-photo" src="./images/2.png" alt="" />
+            <div class="elements__card-content">
+              <p class="elements__card-content-text">Lago Louise</p>
+              <button class="elements__card-like"></button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <img class="elements__card-photo" src="./images/3.png" alt="" />
+            <div class="elements__card-content">
+              <p class="elements__card-content-text">montañas calvas</p>
+              <button class="elements__card-like"></button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <img class="elements__card-photo" src="./images/4.png" alt="" />
+            <div class="elements__card-content">
+              <p class="elements__card-content-text">latemar</p>
+              <button class="elements__card-like"></button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <img class="elements__card-photo" src="./images/5.png" alt="" />
+            <div class="elements__card-content">
+              <p
+                class="elements__card-content-text elements__card-content-text_vanoise"
+              >
+                vanoise national park
+              </p>
+              <button class="elements__card-like"></button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <img class="elements__card-photo" src="./images/6.png" alt="" />
+            <div class="elements__card-content">
+              <p class="elements__card-content-text">lago di braies</p>
+              <button class="elements__card-like"></button>
+            </div>
+          </div>
+        </section>
+        <section class="popup">
+          <button class="popup__btn-close" type="button"></button>
+          <div class="popup__container">
+            <h3 class="popup__title">Editar perfil</h3>
+            <form class="popup__form" name="register">
+              <input
+                class="popup__form-name"
+                type="text"
+                name="name"
+                placeholder="Nombre"
+              />
+              <input
+                class="popup__form-abtme"
+                type="text"
+                name="aboutme"
+                placeholder="acerca de mi"
+              />
+              <button class="popup__form-submit-btn" type="submit">
+                Guardar
+              </button>
+            </form>
+          </div>
+        </section>
       </main>
-      <footer class="footer"></footer>
+      <footer class="footer">
+        <p class="footer__text">© 2024 Around The U.S.</p>
+      </footer>
     </div>
-    <script src="./srcipts/"></script>
+    <script src="./srcipts/script.js"></script>
   </body>
 </html>
