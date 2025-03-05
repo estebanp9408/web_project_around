@@ -10,7 +10,7 @@
   font-family: "Inter", "Arial", sans-serif;
   font-weight: normal;
   font-size: 18px;
-  line-height: auto;
+  line-height: 21px;
 }
 @media screen and (min-width: 320px) and (max-width: 544px) {
   .footer {
