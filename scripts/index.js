@@ -1,6 +1,6 @@
 let editBtn = document.querySelector(".profile__info-edit-btn");
 let closeBtn = document.querySelector(".popup__btn-close");
-let popUp = document.querySelector(".popup");
+const popUp = document.querySelector(".popup");
 function openPopup() {
   if (popUp.classList.contains("popup")) {
     popUp.classList.toggle("popup_opened");

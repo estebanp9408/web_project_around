@@ -8,8 +8,8 @@
   column-gap: 17px;
 }
 .elements__card {
-  width: 282px;
-  /* height: 361px; */
+  max-width: 282px;
+  width: 100%;
   background-color: #fff;
   border-radius: 11px;
 }
@@ -62,5 +62,13 @@
     margin: auto;
     max-width: 282px;
     width: 100%;
+  }
+}
+@media screen and (min-width: 544px) and (max-width: 1024px) {
+  .elements {
+    grid-template-columns: 282px 282px;
+    width: 100%;
+    max-width: 768px;
+    justify-content: center;
   }
 }
