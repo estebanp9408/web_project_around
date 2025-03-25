@@ -1,6 +1,9 @@
 .elements {
   max-width: 880px;
   width: 100%;
+  margin: auto;
+}
+.elements__container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: auto;
@@ -8,6 +11,7 @@
   column-gap: 17px;
 }
 .elements__card {
+  position: relative;
   max-width: 282px;
   width: 100%;
   background-color: #fff;
@@ -16,6 +20,9 @@
 .elements__card-photo {
   height: 282px;
   width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .elements__card-content {
   display: flex;
@@ -49,11 +56,25 @@
 .elements__card-like:hover {
   opacity: 50%;
 }
-.elements__card-like:active {
+.elements__card-like_active {
   background-image: url("../images/blike.svg");
 }
+.elements__card-delete {
+  background-color: transparent;
+  background-image: url(../images/delete.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 18px;
+  height: 20px;
+  border: none;
+}
+
 @media screen and (min-width: 320px) and (max-width: 544px) {
-  .elements {
+  .elements__container {
     max-width: 320px;
     width: 100%;
     grid-template-columns: 100%;
@@ -65,7 +86,7 @@
   }
 }
 @media screen and (min-width: 544px) and (max-width: 1024px) {
-  .elements {
+  .elements__container {
     grid-template-columns: 282px 282px;
     width: 100%;
     max-width: 768px;
