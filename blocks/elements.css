@@ -33,7 +33,7 @@
   margin: auto;
 }
 .elements__card-content-text {
-  font-family: "Inter", "Arial", sans-serif;
+  font-family: "Inter-bold", "sans-serif";
   font-weight: 900;
   line-height: 29px;
   font-size: 24px;
