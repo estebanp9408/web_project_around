@@ -12,6 +12,7 @@ const editForm = document.querySelector(".popup__form");
 const addForm = document.querySelector(".add-popup__form");
 const addPopup = document.querySelector(".add-popup");
 const addPopupCloseBtn = document.querySelector(".add-popup__btn-close");
+import { enableValidation } from "./validate.js";
 
 const initialCards = [
   {
@@ -108,7 +109,8 @@ editBtn.addEventListener("click", () => {
 });
 
 function closePopup() {
-  popup.classList.toggle("popup_opened");
+  popup.classList.remove("popup_opened");
+  addPopup.classList.remove("add-popup_opened");
 }
 
 closeBtn.addEventListener("click", closePopup);
@@ -131,11 +133,7 @@ function openAddPopup() {
 
 addBtn.addEventListener("click", openAddPopup);
 
-function closeAddPopup() {
-  addPopup.classList.toggle("add-popup_opened");
-}
-
-addPopupCloseBtn.addEventListener("click", closeAddPopup);
+addPopupCloseBtn.addEventListener("click", closePopup);
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
@@ -146,7 +144,29 @@ function handleAddFormSubmit(evt) {
   const cardElement = createElement(newCard);
 
   element.prepend(cardElement);
-  closeAddPopup();
+  closePopup();
 }
 
 addForm.addEventListener("submit", handleAddFormSubmit);
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closePopup();
+  }
+});
+document.addEventListener("click", (evt) => {
+  const popupClass = evt.target.classList;
+  if (
+    popupClass.contains("popup_opened") ||
+    popupClass.contains("add-popup_opened")
+  ) {
+    closePopup();
+  }
+});

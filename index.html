@@ -51,44 +51,68 @@
           <button class="popup__btn-close" type="button"></button>
           <div class="popup__container">
             <h3 class="popup__title">Editar perfil</h3>
-            <form class="popup__form" name="register">
+            <form class="popup__form" name="register" novalidate>
               <input
-                class="popup__form-name"
+                required
+                class="popup__form-name popup__input"
                 type="text"
                 name="name"
+                minlength="2"
+                maxlength="40"
                 placeholder="Nombre"
+                id="name-input"
               />
+              <span class="name-input-error"></span>
               <input
-                class="popup__form-abtme"
+                required
+                class="popup__form-abtme popup__input"
                 type="text"
                 name="aboutme"
+                minlength="2"
+                maxlength="200"
                 placeholder="acerca de mi"
+                id="abtme-input"
               />
-              <button class="popup__form-submit-btn" type="submit">
+              <span class="abtme-input-error"></span>
+              <button
+                class="popup__form-submit-btn popup__button"
+                type="submit"
+              >
                 Guardar
               </button>
             </form>
           </div>
         </section>
-        <section class="add-popup">
+        <section class=" popup add-popup">
           <button class="add-popup__btn-close" type="button"></button>
           <div class="add-popup__container">
             <h3 class="add-popup__title">Nuevo lugar</h3>
-            <form class="add-popup__form" name="add">
+            <form class="add-popup__form popup__form" name="add" novalidate>
               <input
-                class="add-popup__form-title"
+                required
+                minlength="2"
+                maxlength="30"
+                class="add-popup__form-title popup__input"
                 type="text"
                 name="titulo"
                 placeholder="titulo"
+                id="title-input"
               />
+              <span class="title-input-error"></span>
               <input
-                class="add-popup__form-img-url"
+                required
+                class="add-popup__form-img-url popup__input"
                 type="url"
                 name="img-url"
                 placeholder="enlace a la imagen"
+                id="url-input"
               />
-              <button class="add-popup__form-submit-btn" type="submit">
-                Crear
+              <span class="url-input-error"></span>
+              <button
+                class="add-popup__form-submit-btn popup__button"
+                type="submit"
+              >
+                crear
               </button>
             </form>
           </div>
@@ -103,7 +127,7 @@
             </div>
           </div>
         </template>
-        <section class="bigimg-popup">
+        <section class=" popup bigimg-popup">
           <button class="bigimg-popup__btn-close" type="button"></button>
           <div class="bigimg-popup__container">
             <img class="bigimg-popup__img" src="" alt="" />
@@ -115,6 +139,6 @@
         <p class="footer__text">© 2024 Around The U.S.</p>
       </footer>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
