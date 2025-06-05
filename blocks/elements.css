@@ -37,12 +37,11 @@
   font-weight: 900;
   line-height: 29px;
   font-size: 24px;
-}
-.elements__card-content-text_vanoise {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
+
 .elements__card-like {
   width: 21px;
   height: 19px;

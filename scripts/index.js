@@ -94,13 +94,9 @@ function createElement(card) {
 }
 
 const element = document.querySelector(".elements__container");
-initialCards.forEach(function (card, index) {
+initialCards.forEach(function (card) {
   const cardElements = createElement(card);
-  if (index === 4) {
-    cardElements
-      .querySelector(".elements__card-content-text")
-      .classList.add("elements__card-content-text_vanoise");
-  }
+
   element.append(cardElements);
 });
 
