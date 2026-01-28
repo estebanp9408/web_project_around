@@ -1,8 +1,9 @@
 export default class Card {
-  constructor(name, link, templateSelector) {
-    this._name = name;
-    this._link = link;
+  constructor(data, templateSelector, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
   _getTemplate() {
     const cardElement = document
@@ -19,19 +20,9 @@ export default class Card {
       evt.target.classList.toggle("elements__card-like_active");
     });
     this._image.addEventListener("click", () => {
-      document
-        .querySelector(".bigimg-popup")
-        .classList.add("bigimg-popup_opened");
-      document.querySelector(".bigimg-popup__img").src = this._link;
-      document.querySelector(".bigimg-popup__footer").textContent = this._name;
-      document
-        .querySelector(".bigimg-popup__btn-close")
-        .addEventListener("click", () => {
-          document
-            .querySelector(".bigimg-popup")
-            .classList.remove("bigimg-popup_opened");
-        });
-    });
+      this._handleCardClick(this);
+    })
+
   }
   generateCard() {
     this.element = this._getTemplate();

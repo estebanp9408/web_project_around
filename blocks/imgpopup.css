@@ -9,7 +9,7 @@
   justify-content: center;
   display: none;
 }
-.bigimg-popup_opened {
+.popup_opened {
   position: fixed;
   top: 0;
   left: 0;
