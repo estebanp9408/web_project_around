@@ -37,14 +37,13 @@
   transform: translate(-50%, -50%);
 }
 .popup__container {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #fff;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 430px;
   height: 330px;
-  background-color: #fff;
   border-radius: 10px;
   border: none;
   display: flex;

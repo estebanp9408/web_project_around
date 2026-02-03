@@ -47,7 +47,7 @@
         <section class="elements">
           <div class="elements__container"></div>
         </section>
-        <section class="popup">
+        <section class="popup popup-edit-profile">
           <button class="popup__btn-close" type="button"></button>
           <div class="popup__container">
             <h3 class="popup__title">Editar perfil</h3>
@@ -67,7 +67,7 @@
                 required
                 class="popup__form-abtme popup__input"
                 type="text"
-                name="aboutme"
+                name="about"
                 minlength="2"
                 maxlength="200"
                 placeholder="acerca de mi"
@@ -84,7 +84,7 @@
           </div>
         </section>
         <section class="popup add-popup">
-          <button class="add-popup__btn-close" type="button"></button>
+          <button class="popup__btn-close" type="button"></button>
           <div class="popup__container">
             <h3 class="add-popup__title">Nuevo lugar</h3>
             <form class="add-popup__form popup__form" name="add" novalidate>
@@ -94,7 +94,7 @@
                 maxlength="30"
                 class="add-popup__form-title popup__input"
                 type="text"
-                name="titulo"
+                name="title"
                 placeholder="titulo"
                 id="title-input"
               />
@@ -103,7 +103,7 @@
                 required
                 class="add-popup__form-img-url popup__input"
                 type="url"
-                name="img-url"
+                name="image"
                 placeholder="enlace a la imagen"
                 id="url-input"
               />
@@ -129,8 +129,8 @@
         </template>
         <section class="popup bigimg-popup">
           <button class="bigimg-popup__btn-close popup__btn-close" type="button"></button>
-          <div class="popup__container">
-            <img class="bigimg-popup__img" src="" alt="" />
+          <div class="bigimg-popup__container">
+            <img class="bigimg-popup__img" src="" alt=" " />
             <p class="bigimg-popup__footer"></p>
           </div>
         </section>

@@ -83,12 +83,10 @@
     text-align: center;
     margin-bottom: 36px;
     margin: auto;
-    display: flex;
     justify-content: center;
     flex-direction: column;
     display: grid;
     grid-template-columns: auto auto;
-    margin-bottom: 36px;
   }
 
   .profile__info-name {

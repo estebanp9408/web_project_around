@@ -3,32 +3,65 @@ import initialCards from "../utils/constants.js";
 import PopupWithImage from "../components/Popupwithimage.js";
 import PopupWithForm from "../components/popupWithForm.js";
 import Card from "../components/Card.js";
+import UserInfo from "../components/userInfo.js";
 const popupImage = new PopupWithImage('.bigimg-popup');
-const editProfilePopup = new PopupWithForm('.popup-edit-profile', () => {});
-const addCardPopup = new PopupWithForm('.add-popup', () => {});
-
-const profileEditButton = document.querySelector('.profile__info-edit-btn');
-const profileAddButton = document.querySelector('.profile__info-add-btn');
-
-profileEditButton.addEventListener('click', () => {
-  editProfilePopup.open();
-});
-
-profileAddButton.addEventListener('click', () => {
-  addCardPopup.open();
-});
-
+popupImage.setEventListeners();
+function handlerImageClick(name, link) {
+  popupImage.open( {name, link} );
+}
 function renderer(item) {
-  const card = new Card(item, "#elements-template", () => popupImage.open(item)
-  );
+  const card = new Card(item, "#elements-template", handlerImageClick);
   return card.generateCard();
 
 }
 const section = new Section({items: initialCards, renderer: renderer},".elements__container");
 section.renderItems();
+const handleAddFormSubmit = (data) => {
+  console.log("DATA RECIBIDA:", data);
+
+  const normalizedData = {
+    name: data.title,
+    link: data.image
+  };
+
+  const cardElement = renderer(normalizedData);
+  section.addItem(cardElement);
+};
+const addCardPopup = new PopupWithForm('.add-popup', handleAddFormSubmit);
+const openAddCardBtn = document.querySelector('.profile__info-add-btn');
+openAddCardBtn.addEventListener('click', () => {
+  addCardPopup.open();
+});
+addCardPopup.setEventListeners();
+const userInfo = new UserInfo({
+  nameSelector: '.profile__info-name',
+  aboutSelector: '.profile__info-description'
+});
+const handleProfileFormSubmit = (data) => {
+  userInfo.setUserInfo({
+    name: data.name,
+    about: data.about
+  });
+}
+const editProfilePopup = new PopupWithForm('.popup-edit-profile',handleProfileFormSubmit);
+const openEditProfileBtn = document.querySelector('.profile__info-edit-btn');
+openEditProfileBtn.addEventListener('click', () => {
+  const currentUserInfo = userInfo.getUserInfo();
+  editProfilePopup.getInputValues({
+    name: currentUserInfo.name,
+    about: currentUserInfo.about
+  });
+  editProfilePopup.open();
+});
+editProfilePopup.setEventListeners();
 
 
 
+
+
+
+
+/*
 // import FormValidator from "../components/FormValidator.js";
 
 // import { initApp } from "./utils.js";
@@ -52,3 +85,4 @@ section.renderItems();
 // });
 // validation.enableValidation();
 // initApp();
+ */
