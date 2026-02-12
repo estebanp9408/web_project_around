@@ -1,9 +1,9 @@
 import Section from "../components/section.js";
 import initialCards from "../utils/constants.js";
-import PopupWithImage from "../components/Popupwithimage.js";
-import PopupWithForm from "../components/popupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import Card from "../components/Card.js";
-import UserInfo from "../components/userInfo.js";
+import UserInfo from "../components/UserInfo.js";
 const popupImage = new PopupWithImage('.bigimg-popup');
 popupImage.setEventListeners();
 function handlerImageClick(name, link) {
