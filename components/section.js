@@ -5,14 +5,14 @@ export default class Section {
     this._renderer=renderer
     this._container=document.querySelector(containerSelector)
   }
-  renderItems(){
-    this._items.forEach((item) => {
-     const card =this._renderer(item)
-     this.addItem(card)
+  renderItems(items){
+    items.forEach((item) => {
+     const card =this._renderer(item);
+     this.addItem(card);
     });
 
   }
   addItem(element){
-    this._container.append(element)
+    this._container.prepend(element)
   }
 }

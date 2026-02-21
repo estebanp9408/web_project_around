@@ -27,16 +27,24 @@
       </header>
       <main class="content">
         <section class="profile">
+          <div class="profile__avatar-container">
           <img
             class="profile__avatar"
-            src="./images/jacquescousteau.jpg"
             alt="jacques cousteau"
           />
+          <button class="profile__avatar-edit-btn">
+            <img
+              class="profile__avatar-edit-btn-image"
+              src="./images/edit .svg"
+              alt="edit-btn"
+            />
+          </button>
+          </div>
           <div class="profile__info">
-            <p class="profile__info-name">Jacques Cousteau</p>
-            <p class="profile__info-description">Explorador</p>
+            <p class="profile__info-name"></p>
+            <p class="profile__info-description"></p>
             <button class="profile__info-edit-btn">
-              <img src="./images/edit.svg" alt="edit-btn" />
+              <img  class="profile__info-edit-btn-image" src="./images/edit .svg" alt="edit-btn" />
             </button>
           </div>
 
@@ -62,7 +70,7 @@
                 placeholder="Nombre"
                 id="name-input"
               />
-              <span id="name-input-error" class="popup__error"></span>
+              <span id="name-input-error" class="name-input-error popup__error"></span>
               <input
                 required
                 class="popup__form-abtme popup__input"
@@ -73,7 +81,7 @@
                 placeholder="acerca de mi"
                 id="abtme-input"
               />
-              <span id="abtme-input-error" class="popup__error"></span>
+              <span id="abtme-input-error" class="abtme-input-error popup__error"></span>
               <button
                 class="popup__form-submit-btn popup__button"
                 type="submit"
@@ -98,7 +106,7 @@
                 placeholder="titulo"
                 id="title-input"
               />
-              <span id="title-input-error" class="popup__error"></span>
+              <span id="title-input-error" class="title-input-error popup__error"></span>
               <input
                 required
                 class="add-popup__form-img-url popup__input"
@@ -107,7 +115,7 @@
                 placeholder="enlace a la imagen"
                 id="url-input"
               />
-              <span id="url-input-error" class="popup__error"></span>
+              <span id="url-input-error" class="url-input-error popup__error"></span>
               <button
                 class="add-popup__form-submit-btn popup__button"
                 type="submit"
@@ -116,6 +124,51 @@
               </button>
             </form>
           </div>
+        </section>
+        <section class="popup bigimg-popup">
+          <button class="bigimg-popup__btn-close popup__btn-close" type="button"></button>
+          <div class="bigimg-popup__container">
+            <img class="bigimg-popup__img"  alt=" " />
+            <p class="bigimg-popup__footer"></p>
+          </div>
+        </section>
+        <section class="popup avatar-popup">
+          <button class="avatar-popup__btn-close popup__btn-close" type="button"></button>
+          <div class="avatar-popup__container">
+            <h3 class="avatar-popup__title">Cambiar foto de perfil</h3>
+            <form class="avatar-popup__form popup__form" name="avatar" novalidate>
+              <input
+                required
+                class="avatar-popup__form-img-url popup__input"
+                type="url"
+                name="avatar"
+                placeholder="enlace a la imagen"
+                id="avatar-url-input"
+              />
+              <span id="avatar-url-input-error" class="avatar-url-input-error popup__error"></span>
+              <button
+                class="avatar-popup__form-submit-btn popup__button"
+                type="submit"
+              >
+                guardar
+              </button>
+            </form>
+          </div>
+        </section>
+        <section class="popup confirm-popup">
+          <button class="confirm-popup__btn-close popup__btn-close" type="button"></button>
+          <div class="confirm-popup__container">
+            <h3 class="confirm-popup__title">¿Estás seguro/a?</h3>
+            <form class="confirm-popup__form popup__form" name="confirm" novalidate>
+              <button
+                class="confirm-popup__form-submit-btn popup__button"
+                type="submit"
+              >
+                Sí
+              </button>
+            </form>
+          </div>
+
         </section>
         <template id="elements-template">
           <div class="elements__card">
@@ -127,13 +180,7 @@
             </div>
           </div>
         </template>
-        <section class="popup bigimg-popup">
-          <button class="bigimg-popup__btn-close popup__btn-close" type="button"></button>
-          <div class="bigimg-popup__container">
-            <img class="bigimg-popup__img"  alt=" " />
-            <p class="bigimg-popup__footer"></p>
-          </div>
-        </section>
+
       </main>
       <footer class="footer">
         <p class="footer__text">&copy; 2024 Around The U.S.</p>
