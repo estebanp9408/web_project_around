@@ -1,39 +1,40 @@
-import Popup from "./Popup.js";
-export default class PopupWithConfirmation extends Popup{
-constructor(popupSelector) {
-  super(popupSelector);
+import Popup from "./popup.js";
 
-  console.log("POPUP:", this._popup);
-
-  this._form = this._popup.querySelector(".confirm-popup__form");
-  console.log("FORM:", this._form);
-
-  this._submitButton = this._popup.querySelector(".confirm-popup__form-submit-btn");
-  console.log("BUTTON:", this._submitButton);
-}
-
-  open() {
-    super.open();
+export default class PopupWithConfirmation extends Popup {
+  constructor(popupSelector) {
+    super(popupSelector);
+    this._submitButton = this._popup
+      ? this._popup.querySelector(".popup__button")
+      : null;
+    this._defaultButtonText = this._submitButton
+      ? this._submitButton.textContent
+      : "Sí";
+    this._handleSubmitCallback = null;
   }
-  close() {
-    super.close();
-  }
- setEventListeners() {
-  console.log("SET LISTENERS CONFIRM EJECUTADO");
 
-  super.setEventListeners();
-
-  this._form.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-    console.log("SUBMIT CONFIRM DISPARADO");
-    if (this._handleSubmit) {
-      this._handleSubmit();
-    }
-  });
-}
   setSubmitAction(action) {
-     console.log("SE ESTA EJECUTANDO HANDLE SUBMIT");
-     console.log(action);
-    this._handleSubmit = action;
+    this._handleSubmitCallback = action;
+  }
+
+  renderLoading(isLoading, loadingText = "Eliminando...") {
+    if (!this._submitButton) return;
+    this._submitButton.textContent = isLoading ? loadingText : this._defaultButtonText;
+    this._submitButton.disabled = Boolean(isLoading);
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+    if (!this._submitButton) return;
+    this._submitButton.addEventListener("click", () => {
+      if (!this._handleSubmitCallback) return;
+      // show loading while action runs
+      this.renderLoading(true);
+      const result = this._handleSubmitCallback();
+      if (result && typeof result.finally === "function") {
+        result.finally(() => this.renderLoading(false));
+      } else {
+        this.renderLoading(false);
+      }
+    });
   }
 }

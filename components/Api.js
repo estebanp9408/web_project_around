@@ -54,10 +54,16 @@ export default class Api {
     }).then(this._checkResponse);
   }
   removeCard(cardId) {
-    console.log(`Removing card with ID: ${cardId}`);
     return fetch(`${this._baseUrl}/v1/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
+    }).then(this._checkResponse);
+  }
+  updateAvatar(avatarUrl) {
+    return fetch(`${this._baseUrl}/v1/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({ avatar: avatarUrl })
     }).then(this._checkResponse);
   }
 
