@@ -1,6 +1,6 @@
 import Section from "../components/section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/popupWithForm.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import Card from "../components/Card.js";
 import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
@@ -78,7 +78,6 @@ Promise.all([API.getUserInfo(), API.getInitialCards()])
       about: userData.about,
       avatar: userData.avatar
     });
-    console.log("DEBUG: initial cards from API", cards);
     section.renderItems(cards);
   })
   .catch((error) => {
@@ -90,7 +89,6 @@ const handleAddFormSubmit = (data) => {
     name: data.name ?? data.title ?? data[0],
     link: data.link ?? data.image ?? data[1],
   };
-  console.log("handleAddFormSubmit - payload:", payload);
     return API.addCard(payload)
     .then(newCard => {
       const cardElement = renderer(newCard);
